@@ -1,45 +1,37 @@
-# Best practices you need to follow
+# Best Practice to install Python libraries/module
+#Step 1: Create a Virtual environment: virtualenv tarun
+#Step 2: Activate => source tarun/bin/activate
+#Step 3: Install libraries => pip install embedchain streamlit
 
-# Step-1: Create virtual environment - virtualenv env
-# Step-2: Activate: source env/bin/activate
-# Step-3: Install modules: pip install embedchain streamlit
-
-# Start with the live demo
+def do_something():
+    st.write("Hello, you clicked the button!")
+#Demo
+# 5-6 different widgets
 import streamlit as st
-
-#Widgets
-#1. Title
+#title
 st.title("Health Assistant Bot")
-#2. Heading
-st.header("IIT Ropar Workshop")
-st.sidebar.header("Workshop by Tarun Jain")
-
-#3. Normal paragraph or Text
-st.write("Build a ChatBot like ChatGPT on own data")
-#4. Markdown Syntax- Very Important when you are working with Streamlit
-st.markdown("# h1")
-st.markdown("## h2")
-st.markdown("### h3")
-st.markdown("#### h4")
-st.markdown("##### h5")
-st.markdown("###### h6")
-st.markdown("[Embedchain Repo](https://github.com/embedchain/embedchain/)")
-#5. User Input
-
-username = st.text_input("Enter your name")
-if username:
-    st.write(username)
+#header
+st.header("Embedchain- Build ChatBot like ChatGPT")
+#normal text 
+st.write("Let's build an Health assistant bot on custom data")
+#user input -  name
+name = st.text_input("Enter your name")
+if name:
+    st.write("Greetings "+name)
+#user input - user bio
 bio = st.text_area("Enter your bio")
-#6. Button/ Selectbox/Radiobutton or Checkbox
+# button
+btn = st.button("Click here")
+if btn:
+    st.write("Button clicked")
+    #also 
+    do_something()
 
-valid = st.button("Click me") #boolean
-if valid:
-    st.write("Button pressed")
+st.markdown("[Embedchain GitHub Repo](https://github.com/embedchain/embedchain/tree/main/embedchain)")
+st.markdown("![dog](https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*)")
 
-choice = st.selectbox("Fav CWC2023 team",("India","Aus","Eng","NZ"))
 
-#7. File Upload 
+upload_file = st.file_uploader("Upload your PDF")
 
-uploaded_files = st.file_uploader("Upload your Image")
-
-#streamlit run demo.py
+# Run our application
+# streamlit run demo.py
